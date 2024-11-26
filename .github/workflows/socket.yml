@@ -1,0 +1,18 @@
+name: Test Async Socket.IO
+
+on:
+    workflow_dispatch:
+
+jobs:
+  test-connection:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: pip install "python-socketio[asyncio]"
+
+      - name: Run async client
+        run: python connect.py
