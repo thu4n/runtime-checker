@@ -1,0 +1,25 @@
+name: Build and test socket image
+
+on:
+    workflow_dispatch:
+
+jobs:
+  build-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and export to local registry
+        run: |
+          docker build -t test-image:test .
+      - name: Run container in detached mode
+        run: |
+            docker run -d --name test_container
+      - name: Output container logs
+        run: |
+            echo "Container logs:"
+            docker logs test_container
