@@ -18,8 +18,4 @@ jobs:
           docker build -t test-image:test .
       - name: Run container in detached mode
         run: |
-            docker run -d --name test_container test-image:test
-      - name: Output container logs
-        run: |
-            echo "Container logs:"
-            docker logs test_container 
+            docker run --rm --name test_container test-image:test

@@ -4,4 +4,4 @@ COPY connect.py .
 
 RUN pip install "python-socketio[asyncio]" aiohttp
 
-ENTRYPOINT ["python", "connect.py"]
+CMD ["python", "connect.py"]

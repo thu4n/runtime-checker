@@ -6,6 +6,7 @@ sio = socketio.AsyncClient()
 @sio.event
 async def connect():
     print("Connected to the server!")
+    await sio.disconnect()
 
 @sio.event
 async def disconnect():
@@ -20,4 +21,5 @@ async def start_connection():
         print(f"Failed to connect: {e}")
 
 if __name__ == "__main__":
+    print("Container running")
     asyncio.run(start_connection())
