@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install dependencies
-        run: pip install "python-socketio[asyncio]"
+        run: pip install "python-socketio[asyncio]" aiohttp
 
       - name: Run async client
         run: python connect.py
